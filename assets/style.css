@@ -5,3 +5,37 @@
     font-size: 300%;
     display: flex;
 }
+
+#sameday{
+    display: flex;
+    background-color: #1B4F8F;
+    width: 40rem;
+    height: 20rem;
+    border-radius: 6%;
+    justify-content: center;
+    display: none;
+    color: white;
+    font-size: 150%;
+    margin-left: 40rem;
+    margin-bottom: 1%;
+}
+
+.print{
+    display:block !important;
+}
+
+#cityname{
+    background: linear-gradient(to right, #1B4F8F,#314F8F,#61008F );
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    color: white;
+}
+
+#fiveday{
+    background: linear-gradient(to right, #1B4F8F,#314F8F,#61008F );
+    font-size: 300%;
+    color: white;
+    height: 6rem;
+    display: none;
+}
