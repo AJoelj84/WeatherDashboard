@@ -35,7 +35,7 @@ var fetchWeather = function(zipCode) {
                         "<li><img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
                         "<li>Humidity: " + currentHumidity + "</li>" +
                         "<li>Temperature Today: "+ temp +"</li>" +
-                        "<li>Wind Speed:"+ windSpeed +"</li>" +
+                        "<li>Wind Speed: "+ windSpeed +"</li>" +
                         "</ul>" 
 
                         cityWeather.innerHTML += weatherHTML;
