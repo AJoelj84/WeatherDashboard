@@ -19,6 +19,24 @@ var fetchWeather = function(zipCode) {
                 })
                 .then(function(data) {
                     console.log('Weather', data);
+                    var city = data.city.name;
+                    var weatherDescription = data.list[0].weather[0].description;
+                    var weatherIcon = data.list[0].weather[0].icon;
+                    var currentHumidity = data.list[0].main.humidity;
+                    var temp = data.list[0].main.temp;
+                    var windSpeed = data.list[0].wind.speed;
+                    var cityWeather = document.getElementById('cityname')
+                    var weatherHTML = "<ul style='list-style-type:none' class='container'>" +
+                  "<li>Todays Weather For <br>"+city+"<br>" + weatherDescription + "</li>" +
+                  "<li><img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
+                  "<li>Humidity: " + currentHumidity + "</li>" +
+                  "<li>Temperature Today: "+ temp +"</li>" +
+                  "<li>Wind Speed:"+ windSpeed +"</li>" +
+                  "</ul>" 
+
+
+                    cityWeather.innerHTML = weatherHTML;
+
                 });
         });
 };
