@@ -28,12 +28,12 @@ var fetchWeather = function(zipCode) {
                     var temp = data.list[0].main.temp;
                     var windSpeed = data.list[0].wind.speed;
                     var date = today.format('ddd, MMM D');
-                    var currentDay ="<ul style='list-style-type:none; display:block;' class='container'>" +
+                    var currentDay ="<ul style='list-style-type:none;' class='container-fluid d-block text-center'>" +
                                     "<li>Today " + date + "<br>" + city + "<br></li>" +
                                     "<li><img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
                                     "<li>Humidity: " + currentHumidity + "</li>" +
-                                    "<li>Temperature Today: "+ temp +"</li>" +
-                                    "<li>Wind Speed:"+ windSpeed +"</li>" +
+                                    "<li>Temperature: "+ temp +"</li>" +
+                                    "<li>Wind Speed: "+ windSpeed +"</li>" +
                                     "</ul>" +
                                     "</div>";
  // Create HTML elements for the Five Day Forecast 
@@ -54,8 +54,8 @@ var fetchWeather = function(zipCode) {
                                         "<li>" + date + "<br>" + city + "<br></li>" +
                                         "<li><img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
                                         "<li>Humidity: " + currentHumidity + "</li>" +
-                                        "<li>Temperature Today: "+ temp +"</li>" +
-                                        "<li>Wind Speed:"+ windSpeed +"</li>" +
+                                        "<li>Temperature: "+ temp +"</li>" +
+                                        "<li>Wind Speed: "+ windSpeed +"</li>" +
                                         "</ul>" 
                         nextFiveDays += weatherHTML;
                     }
