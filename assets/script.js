@@ -19,27 +19,47 @@ var fetchWeather = function(zipCode) {
                 })
                 .then(function(data) {
                     console.log('Weather', data);
+// Creates the HTML and DayJs date for current day
                     var cityWeather = document.getElementById('cityname');
-                        var today = dayjs();
-
-                        for (var i = 0; i < 6; i++) {
+                    var today = dayjs();
+                    var city = data.city.name;
+                    var weatherDescription = data.list[0].weather[0].description;
+                    var weatherIcon = data.list[0].weather[0].icon;
+                    var currentHumidity = data.list[0].main.humidity;
+                    var temp = data.list[0].main.temp;
+                    var windSpeed = data.list[0].wind.speed;
+                    var date = today.format('ddd, MMM D');
+                    var currentDay ="<ul style='list-style-type:none' class='container'>" +
+                                    "<li>" + date + "<br>" + city + "<br>" + weatherDescription + "</li>" +
+                                    "<li><img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
+                                    "<li>Humidity: " + currentHumidity + "</li>" +
+                                    "<li>Temperature Today: "+ temp +"</li>" +
+                                    "<li>Wind Speed:"+ windSpeed +"</li>" +
+                                    "</ul>" +
+                                    "</div>";
+ // Create HTML elements for the Five Day Forecast 
+                    var sameday = document.getElementById('sameday');
+                    sameday.innerHTML = currentDay;   
+                    var nextFiveDays = '';
+                        for (var i = 1; i < 6; i++) {
                         var city = data.city.name;
-                        weatherDescription = data.list[i].weather[0].description;
+                        var weatherDescription = data.list[i].weather[0].description;
                         var weatherIcon = data.list[i].weather[0].icon;
                         var currentHumidity = data.list[i].main.humidity;
                         var temp = data.list[i].main.temp;
                         var windSpeed = data.list[i].wind.speed;
                         var date = today.add(i, 'day').format('ddd, MMM D');
-                        var weatherHTML = "<ul style='list-style-type:none' class='container'>" +
-                        "<li>" + date + "<br>" + city + "<br>" + weatherDescription + "</li>" +
-                        "<li><img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
-                        "<li>Humidity: " + currentHumidity + "</li>" +
-                        "<li>Temperature Today: "+ temp +"</li>" +
-                        "<li>Wind Speed: "+ windSpeed +"</li>" +
-                        "</ul>" 
-
-                        cityWeather.innerHTML += weatherHTML;
+                        var weatherHTML="<ul style='list-style-type:none' class='container'>" +
+                                        "<li>" + date + "<br>" + city + "<br>" + weatherDescription + "</li>" +
+                                        "<li><img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
+                                        "<li>Humidity: " + currentHumidity + "</li>" +
+                                        "<li>Temperature Today: "+ temp +"</li>" +
+                                        "<li>Wind Speed:"+ windSpeed +"</li>" +
+                                        "</ul>" 
+                        nextFiveDays += weatherHTML;
                     }
+                        cityWeather.innerHTML = nextFiveDays;
+                        sameday.innerHTML = currentDay;
                 });           
         });
 };
