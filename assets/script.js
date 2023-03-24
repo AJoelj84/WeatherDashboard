@@ -69,56 +69,62 @@ var fetchWeather = function(zipCode) {
                 });
                 
                 saveLocalStorage(zipCode);
+
+                function saveLocalStorage(zipCode){
+                    previousSearch = JSON.parse(localStorage.getItem('Previous Zip Code')) || [];
+                  
+                    if(!previousSearch.includes(zipCode)){
+                      previousSearch.push(zipCode);
+                      localStorage.setItem('Previous Zip Code', JSON.stringify(previousSearch));
+                      loadLocalStorage(); 
+                    }
+                  }
         });
 };
 // Submit Button for Zip Code Input
 var submitBtn = $("#subBtn");
-submitBtn.on("click", function(event){
-    event.preventDefault();
-    var zipCode = $("#city-enter").val();
-    fetchWeather(zipCode);
+submitBtn.on("click", function (event) {
+  event.preventDefault();
+  var zipCode = $("#city-enter").val();
+  fetchWeather(zipCode);
+  saveLocalStorage(zipCode);
+  loadLocalStorage();
 });
 
 
 
-function saveLocalStorage(zipCode){
-    previousSearch = JSON.parse(localStorage.getItem('Previous Zip Code')) || [];
-  
-    if(!previousSearch.includes(zipCode)){
-      previousSearch.push(zipCode);
-      localStorage.setItem('Previous Zip Code', JSON.stringify(previousSearch));
-      loadLocalStorage(); 
-    }
-  }
+
   
   
-  function loadLocalStorage(){
+  function loadLocalStorage() {
     previousSearch = JSON.parse(localStorage.getItem('Previous Zip Code'));
   
-    if (!previousSearch){
+    if (!previousSearch) {
       previousSearch = [];
     }
   
-    // // Clear the previous searches dropdown menu
+    // Clear the previous searches dropdown menu
     $("#dropdownitems").empty();
   
     // Add the previous searches to the dropdown menu
-    $.each(previousSearch, function(zipCode) {
-      var item = $("<a>").addClass("dropdown-item").attr("href", "#").text(zipCode);
-      item.on("click", function(event){
+    $.each(previousSearch, function (index, zipCode) {
+      var item = $("<a>")
+        .addClass("dropdown-item")
+        .attr("href", "#")
+        .text(zipCode);
+      item.on("click", function (event) {
         event.preventDefault();
         fetchWeather(zipCode);
       });
-      item.appendTo("#dropdownitems");
+      var listItem = $("<li>").append(item);
+      listItem.appendTo("#dropdownitems");
     });
   }
-  $(document).ready(function() {
-    $('.dropdown-toggle').dropdown();
-    // Retrieve previous searches from local storage
-    loadLocalStorage();
   
-   
-  
-  });
-  
+      
+      $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+        loadLocalStorage();
+      });
+      
   

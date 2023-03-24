@@ -21,6 +21,20 @@
     margin-bottom: 1%;
 }
 
+/* #dropdownitems{
+    display: flex;
+    background-color: #1B4F8F;
+    width: 40rem;
+    height: 20rem;
+    border-radius: 6%;
+    justify-content: center;
+    display: none;
+    color: white;
+    font-size: 175%;
+    margin-left: 40rem;
+    margin-bottom: 1%;
+} */
+
 .print{
     display:block !important;
 }
