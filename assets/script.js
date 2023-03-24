@@ -99,20 +99,21 @@ function saveLocalStorage(zipCode){
       previousSearch = [];
     }
   
-    // Clear the previous searches dropdown menu
-    $("#previous-searches").empty();
+    // // Clear the previous searches dropdown menu
+    $("#dropdownitems").empty();
   
     // Add the previous searches to the dropdown menu
-    $.each(previousSearch, function(index, zipCode) {
+    $.each(previousSearch, function(zipCode) {
       var item = $("<a>").addClass("dropdown-item").attr("href", "#").text(zipCode);
       item.on("click", function(event){
         event.preventDefault();
         fetchWeather(zipCode);
       });
-      item.appendTo("#previous-searches");
+      item.appendTo("#dropdownitems");
     });
   }
   $(document).ready(function() {
+    $('.dropdown-toggle').dropdown();
     // Retrieve previous searches from local storage
     loadLocalStorage();
   

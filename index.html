@@ -8,8 +8,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/style.css" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+
         <title>Weather Dashboard</title>
     </head>
 
@@ -21,31 +24,20 @@
                     <form id = 'city-input'>
                         <input type='text' id='city-enter'/><br>
                         <input type='submit' id='subBtn'/>
+                        <article class="d-flex flex-row">   
+                            <div class="card justify-content-center" id="sameday"></div>
+                        </article>
                     </form>
-
-                
-                    <div class="dropdown">
-                        <button id="previous-searches" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Previous Searches
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="previous-searches" id="previous-searches-menu">
-                        </div>
-                    </div>
-
-
                     
-                <article>   
-                    <div class="card justify-content-center" id="sameday"></div>
-                </article>
+                
 
-                    <div class="justify-content-center" id="fiveday">Five Day Forecast</div>
+                    <div class="justify-content" id="fiveday">Five Day Forecast</div>
                 <div class= "d-flex flex-row" id="cityname"></div>
             </section>
 
 
     <script src ='./assets/script.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    <script>dayjs().format()</script>       
     </body>
 
 
