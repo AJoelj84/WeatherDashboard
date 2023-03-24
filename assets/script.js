@@ -1,12 +1,10 @@
 // Variable and Functions to Fetch Lattitude and Longitude by Zip Code, then API call 5 day forecast
-
-
-
 var fetchWeather = function(zipCode) {
     var enteredCity = 'http://api.openweathermap.org/geo/1.0/zip?zip=' + zipCode + '&appid=263899f28c1a4fdfb9c42daf32e3c285';
     console.log(zipCode);
 
-    
+
+
 
 
     fetch(enteredCity)
@@ -67,9 +65,10 @@ var fetchWeather = function(zipCode) {
                         nextFiveDays += weatherHTML;
                     }
                         cityWeather.innerHTML = nextFiveDays;
-                        sameday.innerHTML = currentDay;
-                        
-                });           
+                        sameday.innerHTML = currentDay;      
+                });
+                
+                saveLocalStorage(zipCode);
         });
 };
 // Submit Button for Zip Code Input
@@ -93,3 +92,20 @@ $(document).ready(function() {
     });
   });
 
+function saveLocalStorage(zipCode){
+    previousSearch=zipCode;
+    if(!previousSearch.includes(zipCode)){
+        previousSearch.push(zipCode);
+    }
+
+    localStorage.setItem('Previous Zip Code', JSON.stringify(previousSearch));
+    loadLocalStorage();
+};
+
+function loadLocalStorage(){
+    previousSearch=JSON.parse(localStorage.getItem('Previous Zip Code'));
+
+    if (!previousSearch){
+        previousSearch= "";
+    }
+}
