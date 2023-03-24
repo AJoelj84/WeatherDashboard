@@ -81,31 +81,43 @@ submitBtn.on("click", function(event){
 
 
 
-$(document).ready(function() {
-    // Retrieve previous searches from local storage
-    var previousSearches = JSON.parse(localStorage.getItem("previousSearches")) || [];
-    
-    // Loop through previous searches and create Bootstrap cards
-    $.each(previousSearches, function(index, search) {
-      var card = $("<div>").addClass("card").appendTo("#previous-searches");
-      $("<div>").addClass("card-body").html(search).appendTo(card);
-    });
-  });
-
 function saveLocalStorage(zipCode){
-    previousSearch=zipCode;
+    previousSearch = JSON.parse(localStorage.getItem('Previous Zip Code')) || [];
+  
     if(!previousSearch.includes(zipCode)){
-        previousSearch.push(zipCode);
+      previousSearch.push(zipCode);
+      localStorage.setItem('Previous Zip Code', JSON.stringify(previousSearch));
+      loadLocalStorage(); 
     }
-
-    localStorage.setItem('Previous Zip Code', JSON.stringify(previousSearch));
-    loadLocalStorage();
-};
-
-function loadLocalStorage(){
-    previousSearch=JSON.parse(localStorage.getItem('Previous Zip Code'));
-
+  }
+  
+  
+  function loadLocalStorage(){
+    previousSearch = JSON.parse(localStorage.getItem('Previous Zip Code'));
+  
     if (!previousSearch){
-        previousSearch= "";
+      previousSearch = [];
     }
-}
+  
+    // Clear the previous searches dropdown menu
+    $("#previous-searches").empty();
+  
+    // Add the previous searches to the dropdown menu
+    $.each(previousSearch, function(index, zipCode) {
+      var item = $("<a>").addClass("dropdown-item").attr("href", "#").text(zipCode);
+      item.on("click", function(event){
+        event.preventDefault();
+        fetchWeather(zipCode);
+      });
+      item.appendTo("#previous-searches");
+    });
+  }
+  $(document).ready(function() {
+    // Retrieve previous searches from local storage
+    loadLocalStorage();
+  
+   
+  
+  });
+  
+  
