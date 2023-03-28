@@ -2,11 +2,6 @@
 var fetchWeather = function(zipCode) {
     var enteredCity = 'http://api.openweathermap.org/geo/1.0/zip?zip=' + zipCode + '&appid=263899f28c1a4fdfb9c42daf32e3c285';
     console.log(zipCode);
-
-
-
-
-
     fetch(enteredCity)
         .then(function(response) {
             console.log('City Retrieved');
@@ -91,22 +86,15 @@ submitBtn.on("click", function (event) {
   loadLocalStorage();
 });
 
-
-
-
-  
-  
+// Local Storage Loading and retrieval for Dropdown Menu 
   function loadLocalStorage() {
     previousSearch = JSON.parse(localStorage.getItem('Previous Zip Code'));
-  
     if (!previousSearch) {
       previousSearch = [];
-    }
-  
-    // Clear the previous searches dropdown menu
-    $("#dropdownitems").empty();
-  
-    // Add the previous searches to the dropdown menu
+    } 
+// Clear the previous searches dropdown menu
+    $("#dropdownitems").empty(); 
+// Add the previous searches to the dropdown menu
     $.each(previousSearch, function (index, zipCode) {
       var item = $("<a>")
         .addClass("dropdown-item")
@@ -119,12 +107,8 @@ submitBtn.on("click", function (event) {
       var listItem = $("<li>").append(item);
       listItem.appendTo("#dropdownitems");
     });
-  }
-  
-      
+  }   
       $(document).ready(function() {
         $('.dropdown-toggle').dropdown();
         loadLocalStorage();
       });
-      
-  
