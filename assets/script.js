@@ -82,7 +82,6 @@ submitBtn.on("click", function (event) {
   event.preventDefault();
   var zipCode = $("#city-enter").val();
   fetchWeather(zipCode);
-  saveLocalStorage(zipCode);
   loadLocalStorage();
 });
 
