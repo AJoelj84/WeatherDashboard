@@ -11,10 +11,10 @@
     Day JS for date retrieval
     Bootstrap for CSS Styling
 # Link to Deployed Page and Repository
-    Deployed Page
-        https://ajoelj84.github.io/WeatherDashboard/
-    Repository
-        https://github.com/AJoelj84/WeatherDashboard
+[Deployed Page](https://ajoelj84.github.io/WeatherDashboard)
+        
+[Repository](https://github.com/AJoelj84/WeatherDashboard)
+        
     
 
 
