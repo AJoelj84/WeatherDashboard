@@ -39,3 +39,13 @@
     height: 6rem;
     display: none;
 }
+
+
+@media (max-width: 767px) {
+    #cityname {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+  
+  }
