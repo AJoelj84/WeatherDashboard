@@ -52,7 +52,7 @@ var fetchWeather = function(zipCode) {
                         var date = today.add(i, 'day').format('ddd, MMM D');
                         var weatherHTML="<ul style='list-style-type:none' class='container'>" +
                                         "<li>" + date + "<br>" + city + "<br></li>" +
-                                        "<li><img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
+                                        "<li><img src='https://openweathermap.org/img/w/" + weatherIcon + ".png'></li>" +
                                         "<li>Humidity: " + currentHumidity + "</li>" +
                                         "<li>Temperature: "+ temp +"</li>" +
                                         "<li>Wind Speed: "+ windSpeed +"</li>" +
