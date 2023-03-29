@@ -15,4 +15,4 @@
     
 
 # Screenshots
-    ![Alt text](https://github.com/AJoelj84/WeatherDashboard/blob/main/assets/images/Wdash1.jpg)
+    ![Wdash1](https://user-images.githubusercontent.com/100973307/228689338-ddca2d31-61ae-4cad-b24d-a59156e34975.jpg)
