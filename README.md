@@ -15,4 +15,11 @@
     
 
 # Screenshots
-    ![Wdash1](https://user-images.githubusercontent.com/100973307/228689338-ddca2d31-61ae-4cad-b24d-a59156e34975.jpg)
+![Alt text](assets/images/Wdash1.jpg)
+![Alt text](assets/images/Wdash2.jpg)
+![Alt text](assets/images/Wdash3.jpg)
+![Alt text](assets/images/Wdash4.jpg)
+![Alt text](assets/images/WdashMble1.jpg)
+![Alt text](assets/images/WdashMble2.jpg)
+
+
