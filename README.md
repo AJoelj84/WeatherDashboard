@@ -16,8 +16,3 @@
 
 # Screenshots
     ![Alt text](https://github.com/AJoelj84/WeatherDashboard/blob/main/assets/images/Wdash1.jpg)
-    ![Alt text](https://github.com/AJoelj84/WeatherDashboard/blob/main/assets/images/Wdash2.jpg)
-    ![Alt text](https://github.com/AJoelj84/WeatherDashboard/blob/main/assets/images/Wdash3.jpg)
-    ![Alt text](https://github.com/AJoelj84/WeatherDashboard/blob/main/assets/images/Wdash4.jpg)
-    ![Alt text](https://github.com/AJoelj84/WeatherDashboard/blob/main/assets/images/WdashMble1.jpg)
-    ![Alt text](https://github.com/AJoelj84/WeatherDashboard/blob/main/assets/images/WdashMble2.jpg)
